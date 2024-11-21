@@ -11,7 +11,7 @@ Modules/libs: json, base64, sqlite3, win32crypt, os, Cryptodome.Cipher
 Tested on: Windows 11, Chrome installed
 
 Program flow: Created as per user "yufmial google" answered in superuser article (credits below)
-1. Find chromepath using Windows system environment variables
+1. Find chrome path using Windows system environment variables
 2. Locate Local State and Login Data files
 3. Read encrypted_key json string from Local State file
 4. Decode using base64 and remove "DPAPI" signature
