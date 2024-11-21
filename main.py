@@ -11,7 +11,6 @@ def decrypt_password(cipher_text: bytes) -> str:
     return decrypted_password
 
 def get_masterkey(path: str) -> bytes:
-    m_key = b''
     try:
         with open(path, "r", encoding="utf-8") as f:
             t = f.read()
@@ -28,7 +27,6 @@ def print_and_save_creds(decrypted_rows: list):
     save_path = os.getcwd() + '\\pass_dump.txt'
     username = os.environ['USERNAME']
     pcname = os.environ['USERDOMAIN']
-    whole_crds_str = ''
     i = 0
     usr_f = f"Username: {username}    PC Name: {pcname}\n"
     print(usr_f, end="")
@@ -36,7 +34,10 @@ def print_and_save_creds(decrypted_rows: list):
     save_file = 0
     c = str(input("Do you want to save the output? Y/n: "))
     if(c == "y" or c == "Y"):
-        save_file = open(save_path, "w", encoding="utf-8")
+        try:
+            save_file = open(save_path, "w", encoding="utf-8")
+        except Exception as e:
+            print("[Error] Couldnt open save file, Error:",e)
     for row in decrypted_rows:
         row_f = f"\n{i} Website: {row['url']}\nUsername: {row['username']}\nPassword: {row['password']}"
         print(row_f)
