@@ -1,4 +1,4 @@
-<h2>DISCLAIMER!</h2>
+<b>DISCLAIMER!</b>
 Please DO NOT use this in any unethical way.
 This python script is intended solely for educational purposes and as a proof of concept.
 I do not take any responsibility for its use in any illegal activities or for any harm caused by misuse.
